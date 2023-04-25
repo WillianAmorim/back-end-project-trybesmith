@@ -6,6 +6,13 @@ const create = async (name:string, amount:string) => {
   return product;
 };
 
+const listAll = async () => {
+  const products = await ProductModel.listAll();
+
+  return products;
+};
+
 export default {
   create,
+  listAll,
 };
