@@ -1,9 +1,14 @@
+import { User } from '../Types/user';
 import UserModel from '../models/user';
 
-const create = async (username:string, vocation:string, level:number, password:string) => {
-  const user = await UserModel.create(username, vocation, level, password);
+import Util from '../util/auth';
 
-  return user;
+const create = async (newUser:User) => {
+  const user = await UserModel.create(newUser);
+
+  const token = Util.generateToken(user);
+
+  return token;
 };
 
 export default {
