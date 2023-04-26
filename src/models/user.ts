@@ -2,7 +2,7 @@ import { ResultSetHeader } from 'mysql2';
 import connection from './connection';
 import { User } from '../Types/user';
 
-const create = async (newUser:User) => {
+const create = async (newUser:User):Promise<User> => {
   const sql = `insert into Trybesmith.users
     (username, vocation, level, password) values (?, ?, ?, ?)
   `;
