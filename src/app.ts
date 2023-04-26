@@ -13,4 +13,6 @@ app.get('/products', ProductController.listAll);
 
 app.post('/users', UserController.create);
 
+app.get('/login');
+
 export default app;
