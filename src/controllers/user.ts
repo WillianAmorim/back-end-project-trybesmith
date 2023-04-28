@@ -8,6 +8,16 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).json({ token: user });
 };
 
+const verifyLogin = async (req: Request, res: Response) => {
+  console.log('controller');
+  const { username, password } = req.body;
+
+  const userToken = await UserService.verifyLogin(username, password);
+
+  return res.status(200).json({ token: userToken });
+};
+
 export default {
   create,
+  verifyLogin,
 };
